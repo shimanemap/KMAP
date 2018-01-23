@@ -2,7 +2,8 @@
 var init_center_coords = [133.050485, 35.474598];
 
 // Bing APIのキー
-//var bing_api_key = 'AhGQykUKW2-u1PwVjLwQkSA_1rCTFESEC7bCZ0MBrnzVbVy7KBHsmLgwW_iRJg17';
+// var bing_api_key = 'AhGQykUKW2-u1PwVjLwQkSA_1rCTFESEC7bCZ0MBrnzVbVy7KBHsmLgwW_iRJg17';
+// 取得した 'xf6mYY67aVRjSM9h3OSl~9x_OHGoeezV8H-19y02qWw~AnEVkjQ7uqxdSV6HsOjZnXodLAgK-XgU77xBwfej9Cm9TcBWU-LPh2aQVc_RzH-w';
 var bing_api_key = 'AnEVkjQ7uqxdSV6HsOjZnXodLAgK-XgU77xBwfej9Cm9TcBWU-LPh2aQVc_RzH-w';
 
 // map
