@@ -62,7 +62,7 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function (conditions, nurs
                 var _time = nhour + ":" + nminute;
 
                 //◇
-                window.alert("①" + _time);
+                //window.alert("①" + _time);
 
                 var open = item.properties['開園時間'] ? item.properties['開園時間'] : item.properties['Open'];
                 if(open == _time) {
