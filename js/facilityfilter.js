@@ -50,7 +50,8 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function (conditions, nurs
     if(conditions['ninkaOpenTime']) {
         filterfunc = function (item, idx) {
             f = function (item,idx) {
-                var _time = conditions['ninkaOpenTime'] + ":00";
+                //var _time = conditions['ninkaOpenTime'] + ":00";
+                var _time = Math.floor((conditions['ninkaOpenTime'] / 100)) + ":00";
                 var open = item.properties['開園時間'] ? item.properties['開園時間'] : item.properties['Open'];
                 if(open == _time) {
                     return true;
