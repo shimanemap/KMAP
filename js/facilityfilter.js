@@ -134,6 +134,20 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function (conditions, nurs
         };
         ninkaFeatures = ninkaFeatures.filter(filterfunc);
     }
+
+    // 認可保育所：就学まで
+    if(conditions['ninkaShugaku']) {
+        filterfunc = function (item,idx) {
+            var ageE = item.properties['AgeE'] ? item.properties['AgeE'] : item.properties['AgeE'];
+            if(ageE == '就学前') {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+
+
+
     if(conditions['ninkaVacancy']) {
         filterfunc = function (item,idx) {
             var vacancy = item.properties['Vacancy'] ? item.properties['Vacancy'] : item.properties['Vacancy'];
@@ -219,7 +233,7 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function (conditions, nurs
     if(conditions['ninkagaiShugaku']) {
         filterfunc = function (item,idx) {
             var ageE = item.properties['AgeE'] ? item.properties['AgeE'] : item.properties['AgeE'];
-            if(ageE !== '就学前') {
+            if(ageE == '就学前') {
                 return true;
             }
         };
