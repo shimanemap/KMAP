@@ -324,6 +324,13 @@ $('#mainPage').on('pageshow', function() {
 			ninka = true;
 		}
 
+        //◇追加
+		if($('#ninkaShugaku').prop('checked')) {
+			conditions['ninkaShugaku'] = 1;
+			ninka = true;
+		}
+
+
 		// 認可外
 		if($('#ninkagaiOpenTime option:selected').val() !== "") {
 			conditions['ninkagaiOpenTime'] = $('#ninkagaiOpenTime option:selected').val();
@@ -337,6 +344,7 @@ $('#mainPage').on('pageshow', function() {
 			conditions['ninkagai24H'] = 1;
 			ninkagai = true;
 		}
+		//if($('#ninkagaiShomei').prop('checked')) {
 		if($('#ninkagaiShugaku').prop('checked')) {
 			conditions['ninkagaiShugaku'] = 1;
 			ninkagai = true;
