@@ -233,7 +233,7 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function (conditions, nurs
     if(conditions['ninkagaiShugaku']) {
         filterfunc = function (item,idx) {
             var ageE = item.properties['AgeE'] ? item.properties['AgeE'] : item.properties['AgeE'];
-            if(ageE == '就学前') {
+            if(ageE == '就学前' || ageE == '12歳まで') {
                 return true;
             }
         };
