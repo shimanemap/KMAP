@@ -60,6 +60,10 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function (conditions, nurs
                     var nminute = ninkatime % 100;
                 }
                 var _time = nhour + ":" + nminute;
+
+                //◇
+                window.alert("①" + _time);
+
                 var open = item.properties['開園時間'] ? item.properties['開園時間'] : item.properties['Open'];
                 if(open == _time) {
                     return true;
