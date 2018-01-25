@@ -337,8 +337,8 @@ $('#mainPage').on('pageshow', function() {
 			conditions['ninkagai24H'] = 1;
 			ninkagai = true;
 		}
-		if($('#ninkagaiShomei').prop('checked')) {
-			conditions['ninkagaiShomei'] = 1;
+		if($('#ninkagaiShugaku').prop('checked')) {
+			conditions['ninkagaiShugaku'] = 1;
 			ninkagai = true;
 		}
 
