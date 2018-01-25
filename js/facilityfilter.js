@@ -51,7 +51,15 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function (conditions, nurs
         filterfunc = function (item, idx) {
             f = function (item,idx) {
                 //var _time = conditions['ninkaOpenTime'] + ":00";
-                var _time = Math.floor((conditions['ninkaOpenTime'] / 100)) + ":00";
+                var ninkatime = conditions['ninkaOpenTime'];
+                var nhour = Math.floor(ninkatime / 100);
+                if (ninkatime % 100 == 0) {
+
+                    var nminute = "00";
+                } else {
+                    var nminute = ninkatime % 100;
+                }
+                var _time = nhour + ":" + nminute;
                 var open = item.properties['開園時間'] ? item.properties['開園時間'] : item.properties['Open'];
                 if(open == _time) {
                     return true;
