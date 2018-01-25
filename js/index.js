@@ -17,19 +17,6 @@ var moveToList = [];
 
 // マップサーバ一覧
 var mapServerList = {
-	'mierune-normal': {
-		label: "MIERUNE",
-		source_type: "xyz",
-		source: new ol.source.XYZ({
-			attributions: [
-				new ol.Attribution({
-					html: "Maptiles by <a href='http://mierune.co.jp/' target='_blank'>MIERUNE</a>, under CC BY. Data by <a href='http://osm.org/copyright' target='_blank'>OpenStreetMap</a> contributors, under ODbL."
-				})
-			],
-			url: "https://tile.cdn.mierune.co.jp/styles/normal/{z}/{x}/{y}.png?key=227f1c519c9d6cfb8105c8bdaff9db801ed528ced9cd6c7a903d7261acf2d36d5eec15da09eaff0f15af19414918068860d8fa81a01b6823248426883759c38445f40deb510627169e",
-			projection: "EPSG:3857"
-		})
-	},
 	'bing-road': {
 		label: "標準(Bing)",
 		source_type: "bing",
@@ -37,19 +24,6 @@ var mapServerList = {
 			culture: 'ja-jp',
 			key: bing_api_key,
 			imagerySet: 'Road',
-		})
-	},
-	'mierune-mono': {
-		label: "白地図",
-		source_type: "xyz",
-		source: new ol.source.XYZ({
-			attributions: [
-				new ol.Attribution({
-					html: "Maptiles by MIERUNE, under CC BY. Data by OpenStreetMap contributors, under ODbL."
-				})
-			],
-			url: "https://tile.mierune.co.jp/mierune_mono/{z}/{x}/{y}.png",
-			projection: "EPSG:3857"
 		})
 	},
 	"cyberjapn-pale": {
@@ -113,8 +87,8 @@ $('#mainPage').on('pageshow', function() {
 	// 地図レイヤー定義
 	var papamamap = new Papamamap();
 	papamamap.viewCenter = init_center_coords;
-//	papamamap.generate(mapServerList['bing-road']);
-	papamamap.generate(mapServerList['mierune-normal']);
+	papamamap.generate(mapServerList['bing-road']);
+//	papamamap.generate(mapServerList['mierune-normal']);
 	map = papamamap.map;
 
 	// 保育施設の読み込みとレイヤーの追加
