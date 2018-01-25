@@ -206,15 +206,28 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function (conditions, nurs
         ninkagaiFeatures = ninkagaiFeatures.filter(filterfunc);
     }
     // 認可保育所：証明あり
-    if(conditions['ninkagaiShomei']) {
+    //◇ if(conditions['ninkagaiShomei']) {
+    //◇     filterfunc = function (item,idx) {
+    //◇         var proof = item.properties['証明'] ? item.properties['証明'] : item.properties['Proof'];
+    //◇         if(proof !== null) {
+    //◇             return true;
+    //◇         }
+    //◇     };
+    //◇     ninkagaiFeatures = ninkagaiFeatures.filter(filterfunc);
+    //◇ }
+
+    if(conditions['ninkagaiShugaku']) {
         filterfunc = function (item,idx) {
-            var proof = item.properties['証明'] ? item.properties['証明'] : item.properties['Proof'];
-            if(proof !== null) {
+            var ageE = item.properties['AgeE'] ? item.properties['AgeE'] : item.properties['AgeE'];
+            if(ageE !== '就学前') {
                 return true;
             }
         };
         ninkagaiFeatures = ninkagaiFeatures.filter(filterfunc);
     }
+
+
+
     // console.log("[after]ninkagaiFeatures length:", ninkagaiFeatures.length);
 
     // ----------------------------------------------------------------------
