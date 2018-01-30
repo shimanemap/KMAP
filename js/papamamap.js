@@ -402,7 +402,8 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<td>';
         var vacancy = feature.get('Vacancy') ? feature.get('Vacancy') : feature.get('Vacancy');
         if (vacancy !== undefined && vacancy !== null) {
-            content += '<a href="http://www.city.sapporo.jp/kodomo/kosodate/l4_01.html" target="_blank">空きあり</a>';
+            /**content += '<a href="http://www.city.sapporo.jp/kodomo/kosodate/l4_01.html" target="_blank">空きあり</a>'; */
+            content += '<a href="http://www1.city.matsue.shimane.jp/kyouiku/hoiku/hoyoukodomo/hoikusho/29nennyuusyokanoujidousuu.html" target="_blank">空きあり</a>';
         }
         var vacancyDate = feature.get('VacancyDate');
         if (vacancyDate !== undefined && vacancyDate !== null) {
@@ -411,6 +412,7 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '</td>';
         content += '</tr>';
     }
+
     var ageS = feature.get('開始年齢') ? feature.get('開始年齢') : feature.get('AgeS');
     var ageE = feature.get('終了年齢') ? feature.get('終了年齢') : feature.get('AgeE');
     if (ageS !== undefined && ageS !== null && ageE !== undefined && ageE !== null) {
