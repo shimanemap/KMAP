@@ -407,7 +407,7 @@ Papamamap.prototype.getPopupContent = function(feature)
         }
         var vacancyDate = feature.get('VacancyDate');
         if (vacancyDate !== undefined && vacancyDate !== null) {
-            content += " (" + vacancyDate + ")";
+            content += "<br> (" + vacancyDate + ")";
         }
         content += '</td>';
         content += '</tr>';
