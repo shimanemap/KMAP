@@ -1,8 +1,4 @@
-﻿{
-"type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-
-"features": [
+{"type":"FeatureCollection","features":[
 { "type": "Feature", "properties": { "A27_005": 32201, "A27_006": "松江市立", "A27_007": "持田小学校", "A27_008": "松江市東持田町81", "x": 133.07960000, "y": 35.50080000, "label": "持田小" }, "geometry": { "type": "Point", "coordinates": [ 133.07960000, 35.50080000 ] } },
 { "type": "Feature", "properties": { "A27_005": 32201, "A27_006": "松江市立", "A27_007": "大庭小学校", "A27_008": "松江市大庭町1074", "x": 133.08070000, "y": 35.43160000, "label": "大庭小" }, "geometry": { "type": "Point", "coordinates": [ 133.08070000, 35.43160000 ] } },
 { "type": "Feature", "properties": { "A27_005": 32201, "A27_006": "松江市立", "A27_007": "大谷小学校", "A27_008": "松江市玉湯町大谷299", "x": 132.98871000, "y": 35.38857700, "label": "大谷小" }, "geometry": { "type": "Point", "coordinates": [ 132.98871000, 35.38857700 ] } },
