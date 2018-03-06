@@ -199,7 +199,7 @@ Papamamap.prototype.loadNurseryFacilitiesJson = function(successFunc)
 {
     var d = new $.Deferred();
     $.getJSON(
-        "data/nurseryFacilities.geojson",
+        "https://www.geospatial.jp/ckan/dataset/db74071f-cd0a-406d-ba3d-57c7a25d9925/resource/f4536684-5a8e-4880-9b8d-da8a26ee073b/download/32shimane.geojson",
         function(data) {
             successFunc(data);
             d.resolve();
@@ -318,13 +318,13 @@ Papamamap.prototype.getPopupTitle = function(feature)
 {
     // タイトル部
     var title = '';
-    var type = feature.get('種別') ? feature.get('種別') : feature.get('Type');
+    var type = feature.get('種別') ? feature.get('種別') : feature.get('指定緊急避難場所');
     title  = '[' + type + '] ';
-    var owner = feature.get('設置') ? feature.get('設置') : feature.get('Ownership');
+    var owner = feature.get('設置') ? feature.get('設置') : feature.get('高潮');
     if(owner !== undefined && owner !== null && owner !== "") {
         title += ' [' + owner +']';
     }
-    var name = feature.get('名称') ? feature.get('名称') : feature.get('Name');
+    var name = feature.get('名称') ? feature.get('名称') : feature.get('指定緊急避難場所');
     title += name;
     url = feature.get('url');
     if(url !== null && url !='') {
@@ -342,8 +342,8 @@ Papamamap.prototype.getPopupContent = function(feature)
 {
     var content = '';
     content = '<table><tbody>';
-    var open  = feature.get('開園時間') ? feature.get('開園時間') : feature.get('Open');
-    var close = feature.get('終園時間') ? feature.get('終園時間') : feature.get('Close');
+    var open  = feature.get('開園時間') ? feature.get('開園時間') : feature.get('地震');
+    var close = feature.get('終園時間') ? feature.get('終園時間') : feature.get('津波');
     if (open != undefined && open !== null && open !== "" && close !== undefined && close !== null && close !== "") {
         content += '<tr>';
         content += '<th>時間</th>';
@@ -352,17 +352,17 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '</td>';
         content += '</tr>';
     }
-    var memo = feature.get('備考') ? feature.get('備考') : feature.get('Memo');
+    var memo = feature.get('備考') ? feature.get('備考') : feature.get('大規模な火事');
     if (memo !== undefined && memo !== null) {
         content += '<tr>';
         content += '<th></th>';
         content += '<td>' + memo + '</td>';
         content += '</tr>';
     }
-    var temp    = feature.get('一時') ? feature.get('一時') : feature.get('Temp');
-    var holiday = feature.get('休日') ? feature.get('休日') : feature.get('holiday');
-    var night   = feature.get('夜間') ? feature.get('夜間') : feature.get('Night');
-    var h24     = feature.get('H24') ? feature.get('H24') : feature.get('H24');
+    var temp    = feature.get('一時') ? feature.get('一時') : feature.get('内水氾濫');
+    var holiday = feature.get('休日') ? feature.get('休日') : feature.get('火山現象');
+    var night   = feature.get('夜間') ? feature.get('夜間') : feature.get('洪水');
+    var h24     = feature.get('高潮') ? feature.get('高潮') : feature.get('高潮');
 
     if( temp !== null || holiday !== null || night !== null || h24 !== null) {
         content += '<tr>';
@@ -384,12 +384,12 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '</tr>';
     }
 
-    var type = feature.get('種別') ? feature.get('種別') : feature.get('Type');
+    var type = feature.get('種別') ? feature.get('種別') : feature.get('指定緊急避難場所');
     if(type == "認可外") {
         content += '<tr>';
         content += '<th>監督基準</th>';
         content += '<td>';
-        var proof = feature.get('証明') ? feature.get('証明') : feature.get('Proof');
+        var proof = feature.get('証明') ? feature.get('証明') : feature.get('地震');
         if (proof !== undefined && proof !== null) {
             content += '証明書発行済<a href="http://www.city.sapporo.jp/kodomo/kosodate/ninkagai_shisetsu.html" target="_blank">(詳細)</a>';
         }
@@ -400,12 +400,12 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<tr>';
         content += '<th>欠員</th>';
         content += '<td>';
-        var vacancy = feature.get('Vacancy') ? feature.get('Vacancy') : feature.get('Vacancy');
+        var vacancy = feature.get('地震') ? feature.get('地震') : feature.get('地震');
         if (vacancy !== undefined && vacancy !== null) {
             /**content += '<a href="http://www.city.sapporo.jp/kodomo/kosodate/l4_01.html" target="_blank">空きあり</a>'; */
             content += '<a href="http://www1.city.matsue.shimane.jp/kyouiku/hoiku/hoyoukodomo/hoikusho/29nennyuusyokanoujidousuu.html" target="_blank">空きあり</a>';
         }
-        var vacancyDate = feature.get('VacancyDate');
+        var vacancyDate = feature.get('津波');
         if (vacancyDate !== undefined && vacancyDate !== null) {
             content += "<br> (" + vacancyDate + ")";
         }
@@ -413,37 +413,37 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '</tr>';
     }
 
-    var ageS = feature.get('開始年齢') ? feature.get('開始年齢') : feature.get('AgeS');
-    var ageE = feature.get('終了年齢') ? feature.get('終了年齢') : feature.get('AgeE');
+    var ageS = feature.get('開始年齢') ? feature.get('開始年齢') : feature.get('大規模な火事');
+    var ageE = feature.get('終了年齢') ? feature.get('終了年齢') : feature.get('内水氾濫');
     if (ageS !== undefined && ageS !== null && ageE !== undefined && ageE !== null) {
         content += '<tr>';
         content += '<th>年齢</th>';
         content += '<td>' + ageS + '〜' + ageE + '</td>';
         content += '</tr>';
     }
-    var full = feature.get('定員') ? feature.get('定員') : feature.get('Full');
+    var full = feature.get('定員') ? feature.get('定員') : feature.get('火山現象');
     if (full !== undefined && full !== null) {
         content += '<tr>';
         content += '<th>定員</th>';
         content += '<td>' + full + '人</td>';
         content += '</tr>';
     }
-    var tel = feature.get('TEL') ? feature.get('TEL') : feature.get('TEL');
+    var tel = feature.get('洪水') ? feature.get('洪水') : feature.get('洪水');
     if (tel !== undefined && tel !== null) {
         content += '<tr>';
         content += '<th>TEL</th>';
         content += '<td>' + tel + '</td>';
         content += '</tr>';
     }
-    var add1 = feature.get('住所１') ? feature.get('住所１') : feature.get('Add1');
-    var add2 = feature.get('住所２') ? feature.get('住所２') : feature.get('Add2');
+    var add1 = feature.get('住所１') ? feature.get('住所１') : feature.get('高潮');
+    var add2 = feature.get('住所２') ? feature.get('住所２') : feature.get('地震');
     if (add1 !== undefined && add2 !== undefined) {
         content += '<tr>';
         content += '<th>住所</th>';
         content += '<td>' + add1 + add2 +'</td>';
         content += '</tr>';
     }
-    var owner = feature.get('設置者') ? feature.get('設置者') : feature.get('Owner');
+    var owner = feature.get('設置者') ? feature.get('設置者') : feature.get('津波');
     if (owner !== undefined && owner !== null) {
         content += '<tr>';
         content += '<th>設置者</th>';
