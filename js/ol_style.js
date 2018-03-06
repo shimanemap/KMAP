@@ -154,7 +154,7 @@ function baseSchoolStyle(mojicolor, fillcolor) {
 		];
 
 		resolution = Math.floor(resolution * 1000);
-		var text = "";指定緊急避難場所
+		var text = "";
 		//◇ if(feature.get('label') !== null) {
 		if(feature.get('指定緊急避難場所') !== null) {
 
