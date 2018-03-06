@@ -201,7 +201,7 @@ Papamamap.prototype.loadNurseryFacilitiesJson = function(successFunc)
     window.alert("①");
 
     $.getJSON(
-        "https://www.geospatial.jp/ckan/dataset/db74071f-cd0a-406d-ba3d-57c7a25d9925/resource/f4536684-5a8e-4880-9b8d-da8a26ee073b/download/32shimane.geojson/callback=?",
+        "https://www.geospatial.jp/ckan/dataset/db74071f-cd0a-406d-ba3d-57c7a25d9925/resource/f4536684-5a8e-4880-9b8d-da8a26ee073b/download/32shimane.geojson/",
         function(data) {
             successFunc(data);
             d.resolve();
