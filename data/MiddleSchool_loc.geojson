@@ -1,8 +1,4 @@
-{
-"type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-
-"features": [
+{"type":"FeatureCollection","features":[
 { "type": "Feature", "properties": { "A32_001": 32201, "A32_002": "松江市立", "A32_003": "八雲中学校", "address": "八雲町西岩坂９３１番地", "指定緊急避難場所": "八雲中" }, "geometry": { "type": "Point", "coordinates": [ 133.0880012, 35.4029481 ] } },
 { "type": "Feature", "properties": { "A32_001": 32201, "A32_002": "松江市立", "A32_003": "八束中学校", "address": "八束町波入１９７５番地", "指定緊急避難場所": "八束中" }, "geometry": { "type": "Point", "coordinates": [ 133.1746534, 35.4953036 ] } },
 { "type": "Feature", "properties": { "A32_001": 32201, "A32_002": "松江市立", "A32_003": "本庄中学校", "address": "野原町４２４番地２", "指定緊急避難場所": "本庄中" }, "geometry": { "type": "Point", "coordinates": [ 133.1357617, 35.5154664 ] } },
