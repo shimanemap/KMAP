@@ -198,16 +198,24 @@ Papamamap.prototype.addNurseryFacilitiesLayer = function(facilitiesData)
 Papamamap.prototype.loadNurseryFacilitiesJson = function(successFunc)
 {
     var d = new $.Deferred();
+    window.alert("①");
+
     $.getJSON(
         "https://www.geospatial.jp/ckan/dataset/db74071f-cd0a-406d-ba3d-57c7a25d9925/resource/f4536684-5a8e-4880-9b8d-da8a26ee073b/download/32shimane.geojson",
         function(data) {
             successFunc(data);
             d.resolve();
         }
+        window.alert("②");
+
     ).fail(function(){
+        window.alert("③");
+
         console.log('station data load failed.');
         d.reject('load error.');
     });
+    window.alert("④");
+
     return d.promise();
 };
 
