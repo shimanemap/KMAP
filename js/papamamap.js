@@ -41,7 +41,7 @@ Papamamap.prototype.generate = function(mapServerListItem)
                     new ol.layer.Vector({
                         source: new ol.source.GeoJSON({
                             projection: 'EPSG:3857',
-                            url: 'data/MiddleSchool_loc.geojson'
+                            url: 'https://shimanemap.github.io/KMAP/data/MiddleSchool_loc.geojson'
                         }),
                         name: 'layerMiddleSchoolLoc',
                         style: middleSchoolStyleFunction,
