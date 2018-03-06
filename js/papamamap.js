@@ -208,10 +208,9 @@ Papamamap.prototype.loadNurseryFacilitiesJson = function(successFunc)
         }
     ).fail(function(){
         console.log('station data load failed.');
-        window.alert("②");
         d.reject('load error.');
     });
-    window.alert("③");
+    window.alert("②");
     return d.promise();
 };
 
