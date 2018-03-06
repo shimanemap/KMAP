@@ -206,16 +206,12 @@ Papamamap.prototype.loadNurseryFacilitiesJson = function(successFunc)
             successFunc(data);
             d.resolve();
         }
-        window.alert("②");
-
     ).fail(function(){
-        window.alert("③");
-
         console.log('station data load failed.');
+        window.alert("②");
         d.reject('load error.');
     });
-    window.alert("④");
-
+    window.alert("③");
     return d.promise();
 };
 
