@@ -13,21 +13,35 @@ dispCopyright();
 function dispCopyright(){
   var req = new XMLHttpRequest();
 
-  window.alert("なか");
+  window.alert("①");
 
   req.onreadystatechange = function() {
+    window.alert("②");
+
     var result = document.getElementById('result');
+    window.alert("③");
     if (req.readyState == 4) { // 通信の完了時
+      window.alert("④");
       if (req.status == 200) { // 通信の成功時
         result.innerHTML = req.responseText;
+        window.alert("⑤");
       }
     }else{
       result.innerHTML = "通信中...";
+      window.alert("⑥");
     }
   }
 
+  window.alert("⑦");
+
+  req.open("GET", "http://mob.tpj.co.jp/mob/api/records/41", true);
+  req.send(null);
+
+  window.alert("⑧");
+
+  var data = eval('(' + req.responseText + ')');;
+
   window.alert("おわり");
 
-
-  document.write("<p>1" + result.innerHTML +"</p>");
+  document.write("<p>1" + data +"</p>");
 }
