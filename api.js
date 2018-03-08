@@ -12,7 +12,7 @@ dispCopyright();
 
 function dispCopyright(){
 
-  window.alert("①");
+  window.alert("①新");
 
   var xmlHttpRequest = new XMLHttpRequest();
   xmlHttpRequest.onreadystatechange = function()
