@@ -19,9 +19,9 @@ function dispCopyright(){
     window.alert("②");
 
     var result = document.getElementById('result');
-    window.alert("③");
+    window.alert("③レディーステート：" + req.readyState);
     if (req.readyState == 4) { // 通信の完了時
-      window.alert("④");
+      window.alert("④ステータス：" + req.status);
       if (req.status == 200) { // 通信の成功時
         result.innerHTML = req.responseText;
         window.alert("⑤");
