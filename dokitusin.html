@@ -10,8 +10,9 @@
 <script type="text/javascript">
 <!--
 function loadText(){
+  window.alert("①");
 
-  $('#result').text('通信中...');
+  // $('#result').text('通信中...');
   // Ajax通信を開始
   $.ajax({
     url: 'http://mob.tpj.co.jp/mob/api/records/41',
@@ -24,11 +25,11 @@ function loadText(){
   .done(function(data) {
       // 通信成功時の処理を記述
       
-    window.alert("①");
+    window.alert("②");
   })
   .fail(function() {
       // 通信失敗時の処理を記述
-    window.alert("②");
+    window.alert("③");
       
   });
   
