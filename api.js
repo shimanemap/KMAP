@@ -13,6 +13,8 @@ dispCopyright();
 function dispCopyright(){
   var req = new XMLHttpRequest();
 
+  window.alert("なか");
+
   req.onreadystatechange = function() {
     var result = document.getElementById('result');
     if (req.readyState == 4) { // 通信の完了時
@@ -24,6 +26,8 @@ function dispCopyright(){
     }
   }
 
+  window.alert("おわり");
 
-  document.write("<p>1" + result +"</p>");
+
+  document.write("<p>1" + result.innerHTML +"</p>");
 }
