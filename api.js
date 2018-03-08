@@ -11,37 +11,32 @@ dispMsg("bye");
 dispCopyright();
 
 function dispCopyright(){
-  var req = new XMLHttpRequest();
 
   window.alert("①");
 
-  req.onreadystatechange = function() {
-    window.alert("②");
+  var xmlHttpRequest = new XMLHttpRequest();
+  xmlHttpRequest.onreadystatechange = function()
+  {
+    window.alert("②ステータス：" + this.readyState + "◇" + this.status);
 
-    var result = document.getElementById('result');
-    window.alert("③レディーステート：" + req.readyState);
-    if (req.readyState == 4) { // 通信の完了時
-      window.alert("④ステータス：" + req.status);
-      if (req.status == 200) { // 通信の成功時
-        result.innerHTML = req.responseText;
-        window.alert("⑤");
-      }
-    }else{
-      result.innerHTML = "通信中...";
-      window.alert("⑥");
+    if( this.readyState == 4 && this.status == 200 )
+    {
+
+        window.alert("③");
+
+        if( this.response )
+        {
+            console.log(this.response);
+            // 読み込んだ後処理したい内容をかく
+            window.alert("きた" + this.response);
+        }
     }
   }
 
-  window.alert("⑦");
+  xmlHttpRequest.open( 'GET', 'http://mob.tpj.co.jp/mob/api/records/41', true );
+  xmlHttpRequest.responseType = 'json';
+  xmlHttpRequest.send( null );
 
-  req.open("GET", "http://mob.tpj.co.jp/mob/api/records/41", true);
-  req.send(null);
 
-  window.alert("⑧");
-
-  var data = eval('(' + req.responseText + ')');;
-
-  window.alert("おわり");
-
-  document.write("<p>1" + data +"</p>");
+ // document.write("<p>1" + data +"</p>");
 }
