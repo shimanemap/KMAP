@@ -13,11 +13,12 @@ function loadText(){
   var xmlHttp;
 
   window.alert("①");
-
   xmlHttp = new XMLHttpRequest();
+  window.alert("②");
   xmlHttp.open("GET", "http://mob.tpj.co.jp/mob/api/records/41", false);
-  xmlHttp.send(null);
+  window.alert("③");
   alert(xmlHttp.responseText);
+  window.alert("④");
 }
 // -->
 </script>
