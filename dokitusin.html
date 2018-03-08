@@ -16,9 +16,9 @@ function loadText(){
   xmlHttp = new XMLHttpRequest();
   window.alert("②");
   xmlHttp.open("GET", "http://mob.tpj.co.jp/mob/api/records/41", false);
-  window.alert("③");
+  window.alert("③" + xmlHttp.readyState);
   alert(xmlHttp.responseText);
-  window.alert("④");
+  window.alert("④" + xmlHttp.status );
 }
 // -->
 </script>
