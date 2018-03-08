@@ -12,7 +12,7 @@ dispCopyright();
 
 function dispCopyright(){
 
-  window.alert("①きょうと");
+  window.alert("①せんだい");
 
   var xmlHttpRequest = new XMLHttpRequest();
   xmlHttpRequest.onreadystatechange = function()
@@ -33,7 +33,7 @@ function dispCopyright(){
     }
   }
 
-  xmlHttpRequest.open( 'GET', 'https://data.city.kyoto.lg.jp/node/93475.rdfjson', true );
+  xmlHttpRequest.open( 'GET', 'https://aed.azure-mobile.net/api/aedinfo/%E5%AE%AE%E5%9F%8E%E7%9C%8C/%E4%BB%99%E5%8F%B0%E5%B8%82/', true );
   xmlHttpRequest.responseType = 'json';
   xmlHttpRequest.send( null );
 
