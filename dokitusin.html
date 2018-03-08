@@ -10,15 +10,29 @@
 <script type="text/javascript">
 <!--
 function loadText(){
-  var xmlHttp;
 
-  window.alert("①");
-  xmlHttp = new XMLHttpRequest();
-  window.alert("②");
-  xmlHttp.open("GET", "http://mob.tpj.co.jp/mob/api/records/41", false);
-  window.alert("③" + xmlHttp.readyState);
-  window.alert(xmlHttp.responseText);
-  window.alert("④" + xmlHttp.status );
+  $('#result').text('通信中...');
+  // Ajax通信を開始
+  $.ajax({
+    url: 'http://mob.tpj.co.jp/mob/api/records/41',
+    type: 'GET',
+    dataType: 'json',
+    // フォーム要素の内容をハッシュ形式に変換
+    data: $('form').serializeArray(),
+    timeout: 5000,
+  })
+  .done(function(data) {
+      // 通信成功時の処理を記述
+      
+    window.alert("①");
+  })
+  .fail(function() {
+      // 通信失敗時の処理を記述
+    window.alert("②");
+      
+  });
+  
+  
 }
 // -->
 </script>
